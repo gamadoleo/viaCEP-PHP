@@ -38,7 +38,9 @@ class ViaCEP {
     private function fill(array $attributes) {
 
         foreach ($attributes as $key => $value) {
+            if(method_exists($this,"set" . ucfirst($key))){
             $this->{"set" . ucfirst($key)}($value);
+            }
         }
 
     }
